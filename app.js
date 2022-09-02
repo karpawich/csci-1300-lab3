@@ -4,7 +4,7 @@ const apiRequest = async () => {
    * To access information in this API, we need to send our requests through a proxy due to CORS restrictions. 
    * We'll install a proxy to get around this. Learn more about CORS here https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS. 
    * 
-   * Step 1: In your terminal and run `npm install -g local-cors-proxy`
+   * Step 1: In your terminal and run `npm install -g local-cors-proxy` (if you run into an access error, try `sudo npm install -g local-cors-proxy`)
    * Step 2: Once installation is finished, run `lcp --proxyUrl https://www.fruityvice.com`
    * Step 3: If you see "Proxy Active", you're all set up! 
    * 
@@ -29,6 +29,8 @@ const apiRequest = async () => {
     }
   });
 
+  // console.log(response);
+
   // Return the response in JSON format
   return response.json();
 }
@@ -38,8 +40,10 @@ const updatePage = async () => {
 
   // Make API request and get an array of fruit objects
   const fruitsArray = await apiRequest();
+  // console.log(fruitsArray);
 
   // TODO: Use either `map` and/or `filter` to extract some data from the array of fruit objects
+  // For example, find "name of all fruits whose sugar > 15", 
 
   // TODO: Create a new HTML element to display your data 
 
@@ -50,8 +54,8 @@ const updatePage = async () => {
 // SAMPLE CODE of how to create and append a new HTML element to the page
 const exampleAddElement = () => {
   // Create a new HTML element and set its properties
-  const newElement = document.createElement('button');
-  newElement.innerHTML = "this is a button";
+  const newElement = document.createElement('div');
+  newElement.innerHTML = "this text is inside a div";
 
   // Append the new element to an existing part of the webpage
   const existingElement = document.getElementById('example-id');
