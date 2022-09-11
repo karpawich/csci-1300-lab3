@@ -7,10 +7,10 @@ const apiRequest = async () => {
    * This will be used as our proxy to avoid CORS issues.
    */
 
-  const BASE_URL = `https://www.fruityvice.com/api/`
+  const BASE_URL = 'https://www.fruityvice.com/api/'
 
   // This endpoint (https://www.fruityvice.com/doc/index.html#api-GET-getAll) returns a list of all the fruits and their info, feel free to play around with different endpoints!
-  const resourcePath = "fruit/all"
+  const resourcePath = 'fruit/all'
 
   // Making a fetch request to an API endpoint
   // Note: a fetch request is an asynchronous operation, and `await` tells the program to wait until the request has been completed before continuing
