@@ -10,11 +10,12 @@ const apiRequest = async () => {
   const BASE_URL = `https://www.fruityvice.com/api/`
 
   // This endpoint (https://www.fruityvice.com/doc/index.html#api-GET-getAll) returns a list of all the fruits and their info, feel free to play around with different endpoints!
-  const endpoint = "fruit/all"
+  const resourcePath = "fruit/all"
 
   // Making a fetch request to an API endpoint
   // Note: a fetch request is an asynchronous operation, and `await` tells the program to wait until the request has been completed before continuing
-  const response = await fetch(buildProxyEndpoint(BASE_URL, endpoint), {
+  const endpoint = BASE_URL + resourcePath;
+  const response = await fetch(buildProxyEndpoint(endpoint), {
     method: "GET",
     headers: {
       'Content-Type': 'application/json',
@@ -56,4 +57,4 @@ const exampleAddElement = () => {
 
 // do not touch - stencil code to add the proxy to avoid CORS
 const PROXY_URL = 'https://cors-anywhere.herokuapp.com/'
-const buildProxyEndpoint = (baseUrl, endpoint) => `${PROXY_URL}${baseUrl}${endpoint}`;
+const buildProxyEndpoint = (endpoint) => `${PROXY_URL}${endpoint}`;
