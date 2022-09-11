@@ -2,8 +2,7 @@
 const apiRequest = async () => {
   /**
    * To access information in this API, we need to send our requests through a proxy due to CORS restrictions.
-   * IMPORTANT:
-   *      Please go to https://cors-anywhere.herokuapp.com/corsdemo and click "request temporary access to demo server,"
+   * Please go to https://cs1300-cors-anywhere.herokuapp.com/ and click "request temporary access to demo server,"
    * This will be used as our proxy to avoid CORS issues.
    */
 
@@ -36,9 +35,9 @@ const updatePage = async () => {
   // console.log(fruitsArray);
 
   // TODO: Use either `map` and/or `filter` to extract some data from the array of fruit objects
-  // For example, find "name of all fruits whose sugar > 15", 
+  // For example, find "name of all fruits whose sugar > 15",
 
-  // TODO: Create a new HTML element to display your data 
+  // TODO: Create a new HTML element to display your data
 
   // TODO: Append your new element to the page
 
@@ -56,5 +55,5 @@ const exampleAddElement = () => {
 }
 
 // do not touch - stencil code to add the proxy to avoid CORS
-const PROXY_URL = 'https://cors-anywhere.herokuapp.com/'
+const PROXY_URL = 'https://cs1300-cors-anywhere.herokuapp.com/'
 const buildProxyEndpoint = (endpoint) => `${PROXY_URL}${endpoint}`;
