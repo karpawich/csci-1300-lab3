@@ -1,31 +1,23 @@
 // Make a GET request to the fruityvice api to retrieve some fruit data
 const apiRequest = async () => {
   /**
-   * To access information in this API, we need to send our requests through a proxy due to CORS restrictions. 
-   * We'll install a proxy to get around this. Learn more about CORS here https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS. 
-   * 
-   * Step 1: In your terminal and run `npm install -g local-cors-proxy` (if you run into an access error, try `sudo npm install -g local-cors-proxy`)
-   * Step 2: Once installation is finished, run `lcp --proxyUrl https://www.fruityvice.com`
-   * Step 3: If you see "Proxy Active", you're all set up! 
-   * 
-   * Note the port number (eg. PORT: 8010) and fill it in below
+   * To access information in this API, we need to send our requests through a proxy due to CORS restrictions.
+   * IMPORTANT:
+   *      Please go to https://cors-anywhere.herokuapp.com/corsdemo and click "request temporary access to demo server,"
+   * This will be used as our proxy to avoid CORS issues.
    */
 
-  // TODO fill in your own port number 
-  const PORT_NUMBER = "";
-
-  const baseUrl = `http://localhost:${PORT_NUMBER}/proxy/api/`
+  const BASE_URL = `https://www.fruityvice.com/api/`
 
   // This endpoint (https://www.fruityvice.com/doc/index.html#api-GET-getAll) returns a list of all the fruits and their info, feel free to play around with different endpoints!
   const endpoint = "fruit/all"
 
   // Making a fetch request to an API endpoint
   // Note: a fetch request is an asynchronous operation, and `await` tells the program to wait until the request has been completed before continuing
-  const response = await fetch(baseUrl + endpoint, { 
+  const response = await fetch(buildProxyEndpoint(BASE_URL, endpoint), {
     method: "GET",
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*'
     }
   });
 
@@ -61,3 +53,7 @@ const exampleAddElement = () => {
   const existingElement = document.getElementById('example-id');
   existingElement.append(newElement);
 }
+
+// do not touch - stencil code to add the proxy to avoid CORS
+const PROXY_URL = 'https://cors-anywhere.herokuapp.com/'
+const buildProxyEndpoint = (baseUrl, endpoint) => `${PROXY_URL}${baseUrl}${endpoint}`;
