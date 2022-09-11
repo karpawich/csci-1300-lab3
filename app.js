@@ -1,11 +1,5 @@
 // Make a GET request to the fruityvice api to retrieve some fruit data
 const apiRequest = async () => {
-  /**
-   * To access information in this API, we need to send our requests through a proxy due to CORS restrictions.
-   * Please go to https://cs1300-cors-anywhere.herokuapp.com/ and click "request temporary access to demo server,"
-   * This will be used as our proxy to avoid CORS issues.
-   */
-
   const BASE_URL = 'https://www.fruityvice.com/api/'
 
   // This endpoint (https://www.fruityvice.com/doc/index.html#api-GET-getAll) returns a list of all the fruits and their info, feel free to play around with different endpoints!
@@ -54,6 +48,10 @@ const exampleAddElement = () => {
   existingElement.append(newElement);
 }
 
+/**
+ * To access information in this API, we need to send our requests through a proxy due to CORS restrictions.
+ * This will be used as our proxy to avoid CORS issues.
+ */
 // do not touch - stencil code to add the proxy to avoid CORS
 const PROXY_URL = 'https://cs1300-cors-anywhere.herokuapp.com/'
 const buildProxyEndpoint = (endpoint) => `${PROXY_URL}${endpoint}`;
